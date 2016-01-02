@@ -44,6 +44,28 @@ public class LinkedList {
         return true;
     }
 
+    public boolean insert(int position, Node newNode) {        
+        return false;
+    }
+    
+    public boolean insertSorted(Node newNode){
+    	return false;
+    }
+    
+    public void removeDuplicates(){
+    	
+    }
+    
+    public void reverse(){
+    	
+    }
+    
+    // should do a merge sort like operation - 
+    // this object will have the resulted list 
+    public void mergeSorted(Node head){
+    	
+    }
+    
     public boolean delete(Node toDelete){
         if(head == null  || head.next == null){
             return false;
@@ -63,6 +85,14 @@ public class LinkedList {
         }
 
         return false;
+    }
+    
+    public Node getNth(int n){
+    	return null;
+    }
+    
+    public void destroy(){
+    	
     }
 
     public int getSize(){

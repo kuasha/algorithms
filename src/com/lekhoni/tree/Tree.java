@@ -6,14 +6,9 @@ import java.util.Queue;
 /**
  * Created by kuasha on 1/19/15.
  */
-public class Tree {
+public class Tree {	
 	
-	public BinaryTreeNode root;
-	
-	public Tree(){		
-	}	
-	
-	public void traversePreorder(BinaryTreeNode node){
+	public static void traversePreorder(BinaryTreeNode node){
 		if(node != null){
 			visit(node);
 			traversePreorder(node.leftChild);
@@ -21,7 +16,7 @@ public class Tree {
 		}
 	}
 		
-	public void traverseInorder(BinaryTreeNode node){
+	public static void traverseInorder(BinaryTreeNode node){
 		if(node != null){
 			traversePreorder(node.leftChild);
 			visit(node);
@@ -29,7 +24,7 @@ public class Tree {
 		}		
 	}
 	
-	public void traversePostorder(BinaryTreeNode node){
+	public static void traversePostorder(BinaryTreeNode node){
 		if(node != null){
 			traversePreorder(node.leftChild);
 			traversePreorder(node.rightChild);
@@ -37,7 +32,7 @@ public class Tree {
 		}				
 	}
 	
-	public void traverseBFS(BinaryTreeNode root){		
+	public static void traverseBFS(BinaryTreeNode root){		
 		if(root != null){
 			Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();			
 			queue.add(root);
@@ -54,26 +49,24 @@ public class Tree {
 		}
 	}
 	
-	private void visit(BinaryTreeNode node) {
+	private static void visit(BinaryTreeNode node) {
 		System.out.print(node.data + " ");
 	}
 
 	public static void main(String[] args){
-		Tree tree = new Tree();
-		BinaryTreeNode rootNode = new BinaryTreeNode(1);
-		tree.root = rootNode;
+		BinaryTreeNode rootNode = new BinaryTreeNode(1);		
 		rootNode.leftChild  = new BinaryTreeNode(5);
 		rootNode.rightChild = new BinaryTreeNode(7);
 	
 		rootNode.rightChild.leftChild = new BinaryTreeNode(9);
 		
-		tree.traversePreorder(tree.root);
+		traversePreorder(rootNode);
 		System.out.println();
-		tree.traverseInorder(tree.root);
+		traverseInorder(rootNode);
 		System.out.println();
-		tree.traversePostorder(tree.root);
+		traversePostorder(rootNode);
 		System.out.println();
 		
-		tree.traverseBFS(tree.root);
+		traverseBFS(rootNode);
 	}
 }
